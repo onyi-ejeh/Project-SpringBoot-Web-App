@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manager Page</title>
+</head>
+<body>
+<h1>Manager Tasks</h1>
+<ul>
+    <li th:each="info : ${managerInfo}">
+        <strong th:text="${info.title}"></strong>:
+        <span th:text="${info.infoText}"></span>
+    </li>
+</ul>
+</body>
+</html>
+
