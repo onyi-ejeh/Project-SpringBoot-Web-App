@@ -1,18 +1,78 @@
+<!--
+    /**
+     * @file login.html
+     * @author Onyi Ejeh
+     * @date 2025-02-15
+     * @description This is the login page for the application.
+     *              It provides a form for users to enter their credentials
+     *              and submit them for authentication.
+     */
+-->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Login</title>
+    <!--
+        /**
+         * @section Head
+         * @description Contains metadata and the page title.
+         */
+    -->
+    <title>Login</title>  <!-- Page title displayed in the browser tab -->
 </head>
 <body>
-<h1>Login</h1>
-<form th:action="@{/login}" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username"><br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password"><br>
-    <button type="submit">Login</button>
 
+<!--
+    /**
+     * @section Header
+     * @description Displays the main heading of the page.
+     */
+-->
+<h1>Login</h1>  <!-- Main heading indicating that the page is for login -->
+
+<!--
+    /**
+     * @section Login Form
+     * @description Provides a form for users to enter their login credentials.
+     *              The form submits data via a POST request to the "/login" endpoint.
+     */
+-->
+<form th:action="@{/login}" method="post">  <!-- Action URL mapped to '/login' for POST requests -->
+
+    <!--
+        /**
+         * @input Username
+         * @description Field for users to input their username.
+         */
+    -->
+    <label for="username">Username:</label>  <!-- Label for username input field -->
+    <input type="text" id="username" name="username"><br>  <!-- Input field for username -->
+
+    <!--
+        /**
+         * @input Password
+         * @description Field for users to input their password.
+         */
+    -->
+    <label for="password">Password:</label>  <!-- Label for password input field -->
+    <input type="password" id="password" name="password"><br>  <!-- Input field for password -->
+
+    <!--
+        /**
+         * @button Submit
+         * @description Button to submit the login form.
+         */
+    -->
+    <button type="submit">Login</button>  <!-- Submit button to log in -->
 </form>
-<a href="/register">Create New account</a>
+
+<!--
+    /**
+     * @link Register
+     * @description Provides a link for new users to navigate to the registration page.
+     */
+-->
+<a href="/register">Create New account</a>  <!-- Link to register a new account -->
+
 </body>
 </html>

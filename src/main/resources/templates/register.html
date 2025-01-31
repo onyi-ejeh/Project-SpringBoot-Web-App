@@ -1,30 +1,86 @@
+<!--
+    /**
+     * @file register.html
+     * @author Onyi Ejeh
+     * @date 2025-02-15
+     * @description This page allows users to create a new account by providing
+     *              a username, password, and selecting a role.
+     */
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register</title>
+    <!--
+        /**
+         * @section Head
+         * @description Contains metadata and the page title.
+         */
+    -->
+    <title>Register</title>  <!-- Page title displayed in the browser tab -->
 </head>
 <body>
-<h1>Register</h1>
 
-<form action="/register" method="post">
+<!--
+    /**
+     * @section Header
+     * @description Displays the registration page heading.
+     */
+-->
+<h1>Register</h1>  <!-- Main heading indicating the page is for user registration -->
 
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required><br><br>
+<!--
+    /**
+     * @section Registration Form
+     * @description Collects user information for account creation.
+     *              Requires a username, password, and role selection.
+     */
+-->
+<form action="/register" method="post">  <!-- Action URL mapped to '/register' for POST requests -->
 
+    <!--
+        /**
+         * @field Username
+         * @description Input field for the user's username.
+         * @required Yes
+         */
+    -->
+    <label for="username">Username:</label>  <!-- Label for username input field -->
+    <input type="text" id="username" name="username" required><br><br>  <!-- Input field for username, marked as required -->
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br><br>
+    <!--
+        /**
+         * @field Password
+         * @description Input field for the user's password.
+         * @required Yes
+         */
+    -->
+    <label for="password">Password:</label>  <!-- Label for password input field -->
+    <input type="password" id="password" name="password" required><br><br>  <!-- Input field for password, marked as required -->
 
-
-    <label for="role">Role:</label>
-    <select id="role" name="role" required>
-        <option value="USER">User</option>
-        <option value="ADMIN">Admin</option>
-        <option value="MANAGER">Manager</option>
+    <!--
+        /**
+         * @field Role
+         * @description Dropdown menu for selecting user role.
+         * @options USER, ADMIN, MANAGER
+         * @required Yes
+         */
+    -->
+    <label for="role">Role:</label>  <!-- Label for role selection -->
+    <select id="role" name="role" required>  <!-- Dropdown menu to select user role, marked as required -->
+        <option value="USER">User</option>  <!-- Option for User role -->
+        <option value="ADMIN">Admin</option>  <!-- Option for Admin role -->
+        <option value="MANAGER">Manager</option>  <!-- Option for Manager role -->
     </select><br><br>
 
-
-    <button type="submit">Register</button>
+    <!--
+        /**
+         * @button Submit
+         * @description Submits the registration form to create a new user account.
+         */
+    -->
+    <button type="submit">Register</button>  <!-- Submit button to register the user -->
 </form>
+
 </body>
 </html>
