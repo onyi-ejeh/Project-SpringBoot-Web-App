@@ -1,11 +1,51 @@
+<!--
+    /**
+     * @file user.html
+     * @author Onyi Ejeh
+     * @date 2025-02-15
+     * @description This page is the user dashboard that displays
+     *              the logged-in user's username and provides navigation options.
+     */
+-->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>User Page</title>
+    <!--
+        /**
+         * @section Head
+         * @description Contains metadata and the page title.
+         */
+    -->
+    <title>User Page</title>  <!-- Page title displayed in the browser tab -->
 </head>
 <body>
-<h1>Welcome!</h1>
-<p>Your username is: <span th:text="${username}"></span></p>
-<a href="/">Home</a> | <a href="/logout">Logout</a>
+
+<!--
+    /**
+     * @section Header
+     * @description Displays a welcome message for the logged-in user.
+     */
+-->
+<h1>Welcome!</h1>  <!-- Main heading greeting the user -->
+
+<!--
+    /**
+     * @section User Information
+     * @description Displays the logged-in user's username dynamically using Thymeleaf.
+     */
+-->
+<p>Your username is: <span th:text="${username}"></span></p>  <!-- Display username dynamically -->
+
+<!--
+    /**
+     * @section Navigation Links
+     * @description Provides links for navigating back to the home page and logging out.
+     */
+-->
+<a href="/">Home</a>  <!-- Link to the home page -->
+|
+<a href="/logout">Logout</a>  <!-- Link to log out -->
+
 </body>
 </html>

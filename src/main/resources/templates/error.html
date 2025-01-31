@@ -1,11 +1,30 @@
+<!--
+    Error Page Template
+    -------------------
+    This Thymeleaf template renders an error page to indicate that the user does not have
+    the necessary permissions to access a particular resource.
+
+    Structure:
+    - The document sets the page title to "Error Page", which is displayed in the browser tab.
+    - The main heading ("You have no access!") informs the user that access is denied.
+    - A paragraph provides additional context about the access restriction.
+    - Two navigation links are provided:
+        - A "Home" link to navigate back to the homepage.
+        - A "Logout" link to log out of the current session.
+
+    Usage:
+    - This template should be rendered when a user attempts to access a restricted page.
+    - It can be used in combination with security configurations to handle access denied errors.
+-->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Error Page</title>
+    <title>Error Page</title>  <!-- Page title displayed in the browser tab -->
 </head>
 <body>
-<h1>You have no access!</h1>
-<p>You don't have the right permissions to view this page.</p>
-<a href="/">Home</a> | <a href="/logout">Logout</a>
+<h1>You have no access!</h1>  <!-- Main heading indicating access denial -->
+<p>You don't have the right permissions to view this page.</p>  <!-- Explanation of access restriction -->
+<a href="/">Home</a>  <!-- Link to navigate back to the homepage -->
+| <a href="/logout">Logout</a>  <!-- Link to log out of the current session -->
 </body>
 </html>

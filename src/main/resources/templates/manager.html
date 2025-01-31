@@ -1,16 +1,66 @@
+<!--
+    /**
+     * @file manager.html
+     * @author Onyi Ejeh
+     * @date 2025-02-15
+     * @description This page displays manager-related tasks using Thymeleaf templating.
+     *              It dynamically renders a list of tasks fetched from the backend.
+     */
+-->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Manager Page</title>
+    <!--
+        /**
+         * @section Head
+         * @description Contains metadata and the page title.
+         */
+    -->
+    <title>Manager Page</title>  <!-- Page title displayed in the browser tab -->
 </head>
 <body>
-<h1>Manager Tasks</h1>
+
+<!--
+    /**
+     * @section Header
+     * @description Displays the main heading for manager tasks.
+     */
+-->
+<h1>Manager Tasks</h1>  <!-- Main heading indicating the page is for manager tasks -->
+
+<!--
+    /**
+     * @section Task List
+     * @description Displays an unordered list of manager tasks dynamically.
+     *              Each task has a title and an associated description.
+     */
+-->
 <ul>
+    <!--
+        /**
+         * @loop Manager Tasks
+         * @description Iterates through the 'managerInfo' list and displays each task.
+         */
+    -->
     <li th:each="info : ${managerInfo}">
-        <strong th:text="${info.title}"></strong>:
-        <span th:text="${info.infoText}"></span>
+        <!--
+            /**
+             * @display Task Title
+             * @description Displays the title of the manager task.
+             */
+        -->
+        <strong th:text="${info.title}"></strong>:  <!-- Display task title -->
+
+        <!--
+            /**
+             * @display Task Description
+             * @description Displays the description of the manager task.
+             */
+        -->
+        <span th:text="${info.infoText}"></span>  <!-- Display task description -->
     </li>
 </ul>
+
 </body>
 </html>
-

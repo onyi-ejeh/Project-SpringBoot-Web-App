@@ -1,3 +1,20 @@
+<!--
+    Admin Page Template
+    -------------------
+    This Thymeleaf template renders the administrative data page.
+
+    Structure:
+    - The document displays a heading "Administrative Data".
+    - A table is used to display a list of documents.
+      - The table header defines two columns: "Title" and "Description".
+      - The table body iterates over the "documents" attribute passed from the controller.
+        For each document in "documents", the title and description are displayed in separate cells.
+
+    Usage:
+    - This template should be rendered by a Spring Boot controller that adds the "documents"
+      attribute (a list of document objects) to the model.
+    - Each document object is expected to have "title" and "description" properties.
+-->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -5,21 +22,22 @@
 </head>
 <body>
 <h1>Administrative Data</h1>
+
+<!-- Table to display a list of documents with title and description -->
 <table border="1">
     <thead>
     <tr>
-        <th>Title</th>
-        <th>Description</th>
+        <th>Title</th>  <!-- Column for document title -->
+        <th>Description</th>  <!-- Column for document description -->
     </tr>
     </thead>
     <tbody>
+    <!-- Iterate through 'documents' and display each document's title and description -->
     <tr th:each="doc : ${documents}">
-        <td th:text="${doc.title}"></td>
-        <td th:text="${doc.description}"></td>
+        <td th:text="${doc.title}"></td>  <!-- Display document title -->
+        <td th:text="${doc.description}"></td>  <!-- Display document description -->
     </tr>
     </tbody>
 </table>
 </body>
 </html>
-
-
