@@ -8,26 +8,30 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
+/**
+ * Controller for handling admin-related requests.
+ */
 @Controller
 public class AdminController {
 
     private final AdminComponent adminDocumentService;
 
+    /**
+     * Constructor injection for the AdminComponent service.
+     */
     public AdminController(AdminComponent adminDocumentService) {
         this.adminDocumentService = adminDocumentService;
     }
 
+    /**
+     * Handles requests to the admin page.
+     * Retrieves a list of admin documents and adds them to the model.
+     */
     @GetMapping("/admin")
-    public String showAdminpage(Model model) {
-
-        // Add sample admin documents
+    public String showAdminPage(Model model) {
         List<AdminDocument> adminDocuments = adminDocumentService.getAdminDocuments();
         model.addAttribute("documents", adminDocuments);
-        // Maps to admin.html
-        return "admin";
 
+        return "admin"; // Maps to admin.html
     }
-
-
-
 }

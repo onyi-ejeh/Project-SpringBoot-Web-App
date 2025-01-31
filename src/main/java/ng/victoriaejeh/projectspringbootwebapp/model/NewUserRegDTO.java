@@ -1,7 +1,9 @@
 package ng.victoriaejeh.projectspringbootwebapp.model;
 
+//DTO for new user registration.
+// Used to transfer user data between layers.
 public class NewUserRegDTO {
-
+    //Attributes
     private String username;
     private String password;
     private String role;

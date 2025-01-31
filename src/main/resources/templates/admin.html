@@ -5,21 +5,22 @@
 </head>
 <body>
 <h1>Administrative Data</h1>
+
+<!-- Table to display a list of documents with title and description -->
 <table border="1">
     <thead>
     <tr>
-        <th>Title</th>
-        <th>Description</th>
+        <th>Title</th>  <!-- Column for document title -->
+        <th>Description</th>  <!-- Column for document description -->
     </tr>
     </thead>
     <tbody>
+    <!-- Iterate through 'documents' and display each document's title and description -->
     <tr th:each="doc : ${documents}">
-        <td th:text="${doc.title}"></td>
-        <td th:text="${doc.description}"></td>
+        <td th:text="${doc.title}"></td>  <!-- Display document title -->
+        <td th:text="${doc.description}"></td>  <!-- Display document description -->
     </tr>
     </tbody>
 </table>
 </body>
 </html>
-
-

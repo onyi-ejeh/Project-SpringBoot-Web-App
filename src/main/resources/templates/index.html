@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Home</title>
+    <title>Home</title>  <!-- Page title displayed in the browser tab -->
 </head>
 <body>
-<h1><strong th:text="${welcome}"></strong></h1>
-<a href="/user">User Page</a> |
-<a href="/admin">Admin Page</a> |
-<a href="/manager">Manager Page</a> |
-<a href="/logout">Logout</a>
+<h1><strong th:text="${welcome}"></strong></h1>  <!-- Displays the welcome message dynamically from the 'welcome' attribute -->
+<a href="/user">User Page</a>  <!-- Link to the user page -->
+| <a href="/admin">Admin Page</a>  <!-- Link to the admin page -->
+| <a href="/manager">Manager Page</a>  <!-- Link to the manager page -->
+| <a href="/logout">Logout</a>  <!-- Link to log out of the current session -->
 </body>
 </html>

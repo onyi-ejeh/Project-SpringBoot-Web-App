@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Login</title>
+    <title>Login</title>  <!-- Page title displayed in the browser tab -->
 </head>
 <body>
-<h1>Login</h1>
-<form th:action="@{/login}" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username"><br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password"><br>
-    <button type="submit">Login</button>
+<h1>Login</h1>  <!-- Main heading indicating that the page is for login -->
 
+<!-- Form to submit login credentials (username and password) -->
+<form th:action="@{/login}" method="post">  <!-- Action URL mapped to '/login' for POST requests -->
+    <label for="username">Username:</label>  <!-- Label for username input field -->
+    <input type="text" id="username" name="username"><br>  <!-- Input field for username -->
+
+    <label for="password">Password:</label>  <!-- Label for password input field -->
+    <input type="password" id="password" name="password"><br>  <!-- Input field for password -->
+
+    <button type="submit">Login</button>  <!-- Submit button to log in -->
 </form>
-<a href="/register">Create New account</a>
+
+<a href="/register">Create New account</a>  <!-- Link to register a new account -->
 </body>
 </html>

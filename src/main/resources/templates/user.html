@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>User Page</title>
+    <title>User Page</title>  <!-- Page title displayed in the browser tab -->
 </head>
 <body>
-<h1>Welcome!</h1>
+<h1>Welcome!</h1>  <!-- Main heading greeting the user -->
+
+<!-- Display the logged-in user's username dynamically using Thymeleaf -->
 <p>Your username is: <span th:text="${username}"></span></p>
-<a href="/">Home</a> | <a href="/logout">Logout</a>
+
+<!-- Links for navigation -->
+<a href="/">Home</a>  <!-- Link to the home page -->
+|
+<a href="/logout">Logout</a>  <!-- Link to log out -->
 </body>
 </html>

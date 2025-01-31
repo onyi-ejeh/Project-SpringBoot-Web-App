@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Manager Page</title>
+    <title>Manager Page</title>  <!-- Page title displayed in the browser tab -->
 </head>
 <body>
-<h1>Manager Tasks</h1>
+<h1>Manager Tasks</h1>  <!-- Main heading indicating the page is for manager tasks -->
+
+<!-- Unordered list to display manager-related tasks -->
 <ul>
+    <!-- Iterate through the 'managerInfo' list and display each task's title and infoText -->
     <li th:each="info : ${managerInfo}">
-        <strong th:text="${info.title}"></strong>:
-        <span th:text="${info.infoText}"></span>
+        <strong th:text="${info.title}"></strong>:  <!-- Display task title -->
+        <span th:text="${info.infoText}"></span>  <!-- Display task description -->
     </li>
 </ul>
 </body>
 </html>
-
