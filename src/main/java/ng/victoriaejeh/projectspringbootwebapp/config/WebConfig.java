@@ -1,7 +1,6 @@
 package ng.victoriaejeh.projectspringbootwebapp.config;
 
 import ng.victoriaejeh.projectspringbootwebapp.service.CustomUserDetailsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,7 +21,7 @@ public class WebConfig {
 
     private final CustomUserDetailsService customUserDetailsService;
 
-    public WebConfig(@Autowired CustomUserDetailsService customUserDetailsService) {
+    public WebConfig(CustomUserDetailsService customUserDetailsService) {
         this.customUserDetailsService = customUserDetailsService;
     }
 
@@ -30,17 +29,30 @@ public class WebConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/register","/login" , "/error").permitAll()
+                        .requestMatchers("/register", "/login", "/error").permitAll()
                         .requestMatchers("/manager").hasRole("MANAGER")
                         .requestMatchers("/admin").hasAnyRole("ADMIN", "MANAGER")
                         .requestMatchers("/user").hasAnyRole("USER", "ADMIN", "MANAGER")
                         .requestMatchers("/").hasAnyRole("USER", "ADMIN", "MANAGER")
                         .anyRequest().authenticated()
                 )
+
                 .formLogin(Customizer.withDefaults())
                 .exceptionHandling(Customizer.withDefaults())
                 .logout(Customizer.withDefaults());
-
+//                .formLogin(form -> form
+//                        .loginPage("/login")
+//                        .permitAll()
+//                ); // ✅ Fixed: Replaced colon with semicolon
+//        http.csrf(AbstractHttpConfigurer::disable);
+//
+//        http.logout(logout -> logout
+//                .logoutUrl("/logout")
+//                .logoutSuccessUrl("/")
+//                .invalidateHttpSession(true)
+//                .clearAuthentication(true)
+//                .permitAll()
+//        );
 
         return http.build();
     }
@@ -49,10 +61,9 @@ public class WebConfig {
     public AuthenticationManager authenticationManager(
             UserDetailsService userDetailsService,
             PasswordEncoder passwordEncoder) {
-        // Returns lambda implementation of the AuthenticationManager
         return authentication -> {
-            String username = authentication.getPrincipal().toString(); // (1)
-            String password = authentication.getCredentials().toString(); // (1)
+            String username = authentication.getPrincipal().toString();
+            String password = authentication.getCredentials().toString();
 
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
@@ -60,12 +71,13 @@ public class WebConfig {
                 throw new BadCredentialsException("User not found");
             }
 
-            if (!passwordEncoder.matches(password, userDetails.getPassword())) {                                     // (3)
+            if (!passwordEncoder.matches(password, userDetails.getPassword())) {
                 throw new BadCredentialsException("Wrong login credentials");
             }
+
             return new UsernamePasswordAuthenticationToken(
-                    userDetails.getUsername(),
-                    userDetails.getPassword(),
+                    userDetails,  // ✅ Corrected: Pass userDetails instead of username
+                    password,
                     userDetails.getAuthorities()
             );
         };
